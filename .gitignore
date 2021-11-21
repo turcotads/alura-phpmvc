@@ -1,3 +1,4 @@
+#Gerador de gitignore: https://www.toptal.com/developers/gitignore
 composer.phar
 composer.lock
 /vendor/
