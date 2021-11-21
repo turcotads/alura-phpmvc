@@ -2,11 +2,16 @@
 
 namespace Alura\Cursos\Controller;
 
-class Deslogar implements InterfaceControladorRequisicao
+use Psr\Http\Server\RequestHandlerInterface;
+use Psr\Http\Message\ResponseInterface;
+use Nyholm\Psr7\Response;
+use Psr\Http\Message\ServerRequestInterface;
+
+class Deslogar implements RequestHandlerInterface
 {
-    public function processaRequisicao(): void
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
         session_destroy();
-        header('Location: /login');
+        return new Response(200, ['Location' => '/login']);
     }
 }
